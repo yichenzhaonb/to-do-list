@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function Form(pros){
+function Form(props){
     const [name,setName] = useState('');
     function handleSubmit(e){
        e.preventDefault();
        if(!name.trim()){
            return;
        }
-       pros.addTaks(name);
+       props.addTask(name);
        setName("");
     }
  
