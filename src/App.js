@@ -18,7 +18,6 @@ function addTask(name){
 
 }
 
-
 const taskList = tasks.map(task => (
   <Todo
     id={task.id}
@@ -27,7 +26,6 @@ const taskList = tasks.map(task => (
     key={task.id}
   />
 ));
-
 
   return (
     <div className="App">
@@ -38,14 +36,13 @@ const taskList = tasks.map(task => (
       </header>
       <div className="Content">
         <Form addTask= {addTask} />
-        <ul
-     
+        <ul  
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
         {taskList}
       </ul>
-
+        <Form />
 
       </div>
      <div className="Footer">
