@@ -6,7 +6,8 @@ import { nanoid } from "nanoid";
 
 
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
+const [tasks, setTasks] = useState(props.tasks);
+
 function addTask(name){
   let newTask = {
                 id:"todo-" + nanoid(),
@@ -18,14 +19,24 @@ function addTask(name){
 
 }
 
+function deleteTask(id){
+
+  const remainTasks = tasks.filter(task=> task.id!==id);
+
+  setTasks(remainTasks);
+
+}
+
 const taskList = tasks.map(task => (
   <Todo
     id={task.id}
     name={task.name}
     completed={task.completed}
     key={task.id}
+    deleteTask = {deleteTask}
   />
 ));
+
 
   return (
     <div className="App">
@@ -42,8 +53,6 @@ const taskList = tasks.map(task => (
       >
         {taskList}
       </ul>
-        <Form />
-
       </div>
      <div className="Footer">
         {/* add footer */}
