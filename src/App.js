@@ -19,6 +19,21 @@ function addTask(name){
 
 }
 
+function editTask(id,newName){
+
+   const editedTasks = tasks.map(task=>{
+
+   if(id===task.id){
+
+    return {...task, name: newName};
+   }
+    return task;
+
+   });
+
+setTasks(editedTasks);
+}
+
 function deleteTask(id){
 
   const remainTasks = tasks.filter(task=> task.id!==id);
@@ -34,6 +49,7 @@ const taskList = tasks.map(task => (
     completed={task.completed}
     key={task.id}
     deleteTask = {deleteTask}
+    editTask = {editTask}
   />
 ));
 
